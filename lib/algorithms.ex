@@ -29,6 +29,31 @@ defmodule Algorithms do
 
   defp bubble_pass(l, _), do: l;
 
+
+  @doc """
+    Sieve of Eratosthenes: find all the prime numbers up to a given integer
+  """
+  def get_primes(limit) when limit <= 1 do
+    []
+  end
+
+  def get_primes(limit) do
+    l = Enum.to_list(2..limit)  # Convert range to list
+    sieve(l, 2)
+  end
+
+  defp sieve(l, prime) do
+    # Base condition: stop if prime * prime > largest element in the list
+    if prime * prime > List.last(l) do
+      l;
+
+    else
+
+      filtered_list = Enum.filter(l, fn x -> x == prime || rem(x, prime) != 0 end)
+      next_prime = Enum.find(filtered_list, fn x -> x > prime end)
+      sieve(filtered_list, next_prime);
+    end
+  end
 end
 
 
