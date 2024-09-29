@@ -54,10 +54,17 @@ defmodule Algorithms do
       sieve(filtered_list, next_prime);
     end
   end
+
+
+  # Quake Inverse Square Root
+
+  # steps
+  # integer into a 32 bit integer.
+  # the magic number - (the integer shifted to the right)
+  # turn the int32integer to a float
+  # return the newton formula: y * (1.5 - 0.5 * x * y * y); for a very close approximation
+
+
+
 end
 
-
-# Example usage
-array = [64, 34, 25, 12, 22, 11, 90]
-sorted_array = Algorithms.sort(array)
-IO.inspect(sorted_array) # Output: [11, 12, 22, 25, 34, 64, 90]
